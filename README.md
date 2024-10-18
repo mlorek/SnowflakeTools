@@ -1,1 +1,3 @@
 # SnowflakeTools
+
+- random_uuid()
