@@ -13,3 +13,17 @@ class SnowflakeTools{
 }
 EOT
 }
+
+resource "snowflake_function" "py_random_uuid" {
+  database    = "DB"
+  schema      = "SCH"
+  name        = "PY_RANDOM_UUID"
+  return_type = "STRING"
+  language    = "PYTHON"
+  handler     = "random_uuid"
+  statement   = <<EOT
+import uuid
+def random_uuid():
+  return str(uuid.uuid4())
+EOT
+}
